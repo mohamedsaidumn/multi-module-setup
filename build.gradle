@@ -1,0 +1,74 @@
+plugins {
+    id 'java'
+}
+
+//allprojects{
+//    apply plugin: "java"
+//    group 'org.example'
+//    version '1.0-SNAPSHOT'
+//
+//    repositories {
+//        mavenCentral()
+//    }
+//
+//    dependencies {
+//        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+//        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+//    }
+//
+//    test {
+//        useJUnitPlatform()
+//    }
+//
+//}
+
+//subprojects {
+//    print "Hello ${project.name}"
+//
+//
+//    if (["module-1"].contains(project.name))
+//    {
+//        apply plugin: "java"
+//        group 'org.example'
+//        version '1.0-SNAPSHOT'
+//
+//                repositories {
+//                    mavenCentral()
+//                }
+//
+//                dependencies {
+//                    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+//                    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+//                }
+//
+//                test {
+//                    useJUnitPlatform()
+//                }
+//    }
+//}
+
+//this is used when all you subprojects are not java
+def javaProjects  = [project(":module-1") , project(":module-2")]
+
+configure(javaProjects) {
+    apply plugin: "java"
+    group 'org.example'
+    version '1.0-SNAPSHOT'
+
+    print "Hello ${project.name}"
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+}
+
+
